@@ -2,7 +2,7 @@
 
 ## Index -
 * [***Shebang***](#shebang)
-* [***Comment***](#comment)
+* [***Comments***](#comments)
 
 ---
 
@@ -12,7 +12,7 @@ The `#!` syntax used in scripts to indicate an interpreter for execution under U
 
 ---
 
-## <a name="comment">Comments</a>
+## <a name="comments">Comments</a>
 * Single Line Comment: A single line that starts with `#` will be treated as a comment to the end of the line. \
     **`# This is a single line comment`**
 
