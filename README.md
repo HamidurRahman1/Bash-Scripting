@@ -41,7 +41,9 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
 ## <a name="inputs">Inputs</a>
  * User inputs are received using the `read` command followed by a variable name.
 
- * Entered input will be wrapped into double quotes `"input"` automatically so input with spaces do not get lost.
+ * Entered input will be wrapped into double quotes `"entered input"` automatically so input with spaces do not get lost.
+ 
+ * Multiple inputs can be used using `read var1 var2 var3`.
 
  * A variable can be used and declared with `read` command at the same time.
 
@@ -49,6 +51,14 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
     echo "What is your name?"  
     read NAME  
     echo "Hello $NAME - hope you are doing well."
+    ```
+
+ * Input with options: `read` can be used with options like `-p` allows a prompt where `-sp` allows silent prompts 
+   (inputs not visible).
+    ```shell
+      read -p "Username: " uservar
+      read -sp "Password: " passvar
+      echo "Username: $uservar and Password: $passvar"
     ```
 ---
 
