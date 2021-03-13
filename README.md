@@ -1,10 +1,11 @@
 # Bash-Scripting
 
-## Index -
+## Index:
 * [***Shebang***](#shebang)
 * [***Comments***](#comments)
 * [***Variables***](#variables)
 * [***Inputs***](#inputs)
+* [***Command Line Arguments***](#cmdargs)
 
 ---
 
@@ -44,7 +45,22 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
 
  * A variable can be used and declared with `read` command at the same time.
 
- * `echo What is your name? <br>
-   read NAME <br>
-   echo "Hello $NAME - hope you are doing well."`
+ * ```shell
+    echo "What is your name?"  
+    read NAME  
+    echo "Hello $NAME - hope you are doing well."
+    ```
+---
+
+## <a name="cmdargs">Command Line Arguments</a>
+ * Command line args can be passed as - `[shell] [filename] arg1 arg2 ... argN`
+
+ * Special vars associated with command line args:
+    1. `$#` - total number of arguments passed.
+    2. `$0` - filename as it was called with.
+    3. `$1` through `$9` - can be used access first 9 parameters passed to the CMD.
+    4. `$@` -  all parameters passed to the CMD.
+    5. `$*` - Similar to `$@` but does not preserve the whitespaces and quotes ex. "Arg with space" becomes 
+       "Arg" "with" "space". Usage of `$*` is discouraged.
+    
 ---
