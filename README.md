@@ -4,6 +4,7 @@
 * [***Shebang***](#shebang)
 * [***Comments***](#comments)
 * [***Variables***](#variables)
+* [***Inputs***](#inputs)
 
 ---
 
@@ -33,4 +34,17 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
  * A string variable can be declared without the quotes `"value"` if it does not contain spaces. If there are no spaces then
 it can be declared as `VAR1=VarValueWithoutSpaces` instead of `VAR1="VarValueWithoutSpaces"`.  
 
+ * A variable can be declared with `read` command.
+---
+
+## <a name="inputs">Inputs</a>
+ * User inputs are received using the `read` command followed by a variable name.
+
+ * Entered input will be wrapped into double quotes `"input"` automatically so input with spaces do not get lost.
+
+ * A variable can be used and declared with `read` command at the same time.
+
+ `echo What is your name?` \
+ `read NAME` \
+ `echo "Hello $NAME - hope you are doing well."`
 ---
