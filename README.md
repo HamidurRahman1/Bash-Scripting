@@ -36,6 +36,16 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
    then it can be declared as `VAR1=VarValueWithoutSpaces` instead of `VAR1="VarValueWithoutSpaces"`.  
 
  * A variable can be declared with `read` command.
+
+ * A variable can be made final/constant via `readonly` command.
+    ```shell
+      TARGET_IP=0.0.0.0
+      readonly TARGET_IP 
+      or
+      readonly TARGET_IP=0.0.0.0 
+    ```
+   
+ * A readonly variable with `unset` command or reassignment will cause an error during execution.
 ---
 
 ## <a name="inputs">Inputs</a>
