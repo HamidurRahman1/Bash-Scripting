@@ -26,3 +26,11 @@ echo $TARGET_IP
 #read -p "Username: " uservar
 #read -sp "Password: " passvar
 #echo "Username: $uservar and Password: $passvar"
+
+VAR1="tt "
+VAR2="tT"
+if [[ -n $VAR1 && $VAR1 == "tt" ]]; then
+  echo "vars: $VAR1"
+else
+  echo "no"
+fi
