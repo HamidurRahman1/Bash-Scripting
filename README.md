@@ -6,6 +6,7 @@
 * [Variables](#variables)
 * [Inputs](#inputs)
 * [If-Else](#ifelse)
+* [Conditional Commands](#conditional-cmds)
 * [Loops](#loops)
 * [Array](#array)  
 * [Command Line Arguments](#cmdargs)
@@ -23,11 +24,13 @@ The `#!` syntax used in scripts to indicate an interpreter for execution under U
   **`# This is a single line comment`**
 
 * Multi Line Comment: A multi-line starts with `: '` and end with `'` will be treated as a multi-line comment. <br>
-    **<pre>`: '
+```shell
+: '
   This is the line 1 of multi-line comment.
   this is the line 2 of multi-line comment.
-  '`**</pre>
-  
+'
+``` 
+
 ---
 
 ## <a name="variables">Variables</a>
@@ -42,14 +45,14 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
  * A variable can be declared with `read` command.
 
  * A variable can be made final/constant via `readonly` command.
-    ```shell
-      TARGET_IP=0.0.0.0
-      readonly TARGET_IP 
-      or
-      readonly TARGET_IP=0.0.0.0 
-    ```
+```shell
+  TARGET_IP=0.0.0.0
+  readonly TARGET_IP 
+  or
+  readonly TARGET_IP=0.0.0.0 
+```
    
- * A readonly variable with `unset` command or reassignment will cause an error during execution.
+ * A `readonly` variable with `unset` command or reassignment will cause an error during execution.
 
 ---
 
@@ -77,6 +80,7 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
     ```
 
  * Inputs with flags: TBD.
+
 ---
 
 ## <a name="ifelse">If-Else</a>
@@ -125,6 +129,9 @@ else
 fi
 ```
 
+---
+
+## <a name="conditional-cmds">Conditional Commands</a>
  * String and Numeric conditions:
 
 | Condition | Description
@@ -144,11 +151,26 @@ fi
 | (( $NUM1 < $NUM2 )) | true if `$NUM1` is less than `$NUM2`, false otherwise
 | (( $NUM1 > $NUM2 )) | true if `$NUM1` is greater than `$NUM2`, false otherwise
 
+ * Logical conditions:
+
+| Condition | Description
+| :--- | :---:      
+| [[ ! COND1 ]] | negate the expression `COND1` 
+| [[ COND1 && COND2 ]] | applies logical `and` on `COND1` and `COND2`
+| [[ COND1 &#124;&#124; COND2 ]] | applies logical `or` on `COND1` and `COND2`
+
  * File conditions:
 
 | Condition | Description
 | :--- | :---:      
-| [[ -e $FILE ]] | true if `FILE` exists and is a file, false otherwise
+| [[ -e $FILE ]] | true if `FILE` exists and is a file regardless of the type (node, directory etc), false otherwise
+| [[ -f $FILE ]] | true if `FILE` exists and is a regular file (not a directory or device), false otherwise
+| [[ -h $FILE ]] | true if `FILE` exists and is a symbolic link, false otherwise
+| [[ -s $FILE ]] | true if `FILE` exists and its size is > 0 bytes, false otherwise
+| [[ -d $FILE ]] | true if `FILE` exists and is a directory, false otherwise
+| [[ -r $FILE ]] | true if `FILE` exists and is readable, false otherwise
+| [[ -w $FILE ]] | true if `FILE` exists and is writable, false otherwise
+| [[ -x $FILE ]] | true if `FILE` exists and is executable, false otherwise
 
 ---
 
