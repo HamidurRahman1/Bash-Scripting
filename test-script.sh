@@ -36,18 +36,8 @@ else
 fi
 
 ARRAY=( Apple Banana 'Ground Cherry' Orange 'Star fruit' )
-# get number of elements in the array
-ELEMENTS=${#ARRAY[@]}
 
-echo $ELEMENTS ${ARRAY[0]}
-
-# shellcheck disable=SC2068
-echo ${ARRAY[@]}
-
-# shellcheck disable=SC2184
-unset ARRAY[2]
-
-echo $ELEMENTS ${ARRAY[0]}
+ARRAY=( "${ARRAY[@]:1:2}" "${ARRAY[@]:3}" )
 # shellcheck disable=SC2068
 echo ${ARRAY[@]}
 
@@ -56,3 +46,5 @@ echo ${ARRAY[@]}
 #for (( i=0; i<$ELEMENTS; i++)); do
 #    echo ${ARRAY[${i}]}
 #done
+
+cat $PWD/README.md

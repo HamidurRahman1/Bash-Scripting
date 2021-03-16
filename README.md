@@ -202,7 +202,7 @@ echo ${Fruits[@]}           # all elements, space-separated
 echo ${#Fruits[@]}          # number of elements
 echo ${#Fruits}             # string length of the 1st element
 echo ${#Fruits[3]}          # string length of the 4th element / 3rd index
-echo ${Fruits[@]:2:4}       # slice starting from 2 and take 4
+echo ${Fruits[@]:2:4}       # slice starting from 2 (inclusive) and next 3
 echo ${!Fruits[@]}          # indexes of all elements, space-separated
 ```
 
@@ -213,6 +213,7 @@ Fruits+=('Watermelon')                  # also push to the end
 Fruits=("Watermelon" "${Fruits[@]}")    # push to the front
 Fruits=( ${Fruits[@]/Appl*/} )          # remove by regex match
 unset Fruits[2]                         # remove by index but does not change the length, assign null to index 2
+Fruits=( "${Fruits[@]:0:2}" "${Fruits[@]:3}" )  # remove by slicing
 Fruits=("${Fruits[@]}")                 # duplicate of the array
 Fruits=("${Fruits[@]}" "${Veggies[@]}") # concatenate two arrays
 lines=(`cat "file"`)                    # read from file to array
