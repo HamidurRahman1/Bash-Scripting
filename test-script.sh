@@ -34,3 +34,25 @@ if [[ -n $VAR1 && $VAR1 == "tt" ]]; then
 else
   echo "no"
 fi
+
+ARRAY=( Apple Banana 'Ground Cherry' Orange 'Star fruit' )
+# get number of elements in the array
+ELEMENTS=${#ARRAY[@]}
+
+echo $ELEMENTS ${ARRAY[0]}
+
+# shellcheck disable=SC2068
+echo ${ARRAY[@]}
+
+# shellcheck disable=SC2184
+unset ARRAY[2]
+
+echo $ELEMENTS ${ARRAY[0]}
+# shellcheck disable=SC2068
+echo ${ARRAY[@]}
+
+# echo each element in array
+# for loop
+#for (( i=0; i<$ELEMENTS; i++)); do
+#    echo ${ARRAY[${i}]}
+#done

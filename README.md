@@ -7,8 +7,8 @@
 * [Inputs](#inputs)
 * [If-Else](#ifelse)
 * [Conditional Commands](#conditional-cmds)
+* [Array](#array)
 * [Loops](#loops)
-* [Array](#array)  
 * [Command Line Arguments](#cmdargs)
 
 ---
@@ -174,13 +174,65 @@ fi
 
 ---
 
+## <a name="array">Array</a>
+ * Array can be declared as below:
+
+1. 
+```shell
+Fruits=( 'Apple' 'Banana' 'Ground Cherry' 'Orange' 'Star fruit' )
+```
+ Quotes can be omitted if the array elements does not have spaces in between them. Quotes must be present if one of the 
+ element has space in it. Ex -
+```shell
+Fruits=( Apple Banana 'Ground Cherry' Orange 'Star fruit' )
+```
+
+2.
+```shell
+Fruits[0]="Apple"
+Fruits[1]="Banana"
+Fruits[2]="Orange"
+```
+
+ * Array Commands:
+```shell
+echo ${Fruits[0]}           # element at 0 index
+echo ${Fruits[-1]}          # element at last index
+echo ${Fruits[@]}           # all elements, space-separated
+echo ${#Fruits[@]}          # number of elements
+echo ${#Fruits}             # string length of the 1st element
+echo ${#Fruits[3]}          # string length of the 4th element / 3rd index
+echo ${Fruits[@]:2:4}       # slice starting from 2 and take 4
+echo ${!Fruits[@]}          # indexes of all elements, space-separated
+```
+
+ * Array operations:
+```shell
+Fruits=("${Fruits[@]}" "Watermelon")    # push to the end
+Fruits+=('Watermelon')                  # also push to the end
+Fruits=("Watermelon" "${Fruits[@]}")    # push to the front
+Fruits=( ${Fruits[@]/Appl*/} )          # remove by regex match
+unset Fruits[2]                         # remove by index but does not change the length, assign null to index 2
+Fruits=("${Fruits[@]}")                 # duplicate of the array
+Fruits=("${Fruits[@]}" "${Veggies[@]}") # concatenate two arrays
+lines=(`cat "file"`)                    # read from file to array
+```
+
+ * Iteration:
+```shell
+for FRUIT in "${Fruits[@]}"; do
+  echo $FRUIT
+done
+```
+---
+
 ## <a name="cmdargs">Command Line Arguments</a>
  * Command line args can be passed as - `[shell] [filename] arg1 arg2 ... argN`
 
  * Special vars associated with command line args:
     1. `$#` - total number of arguments passed.
     2. `$0` - filename as it was called with.
-    3. `$1` through `$9` - can be used access first 9 parameters passed to the CMD.
+    3. `$1` through `$9` - can be used to access first 9 parameters passed to the CMD.
     4. `$@` -  all parameters passed to the CMD.
     5. `$*` - Similar to `$@` but does not preserve the whitespaces and quotes ex. "Arg with space" becomes 
        "Arg" "with" "space". Usage of `$*` is discouraged.
