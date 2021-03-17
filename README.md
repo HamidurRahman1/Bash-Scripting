@@ -227,6 +227,77 @@ done
 ```
 ---
 
+## <a name="loops">Loops</a>
+* 3-types of loops:
+* `for` loops:
+   1. Standard Bash `for` loop: This style of loop takes either an array, series of string separated by spaces,
+    a range of numbers, output of a command etc. If an array variable is used then the variable must be quoted for safety
+    in case one of the element has a space in it.
+        ```shell
+        FRUITS=( Apple Banana 'Ground Cherry' Orange 'Star fruit' )
+        for element in "${FRUITS[@]}"; do
+          echo $element
+        done
+        ```
+   2. Loop over a range of numbers: The range is specified like `{START..END}`, `START` and `END` both inclusive. This 
+      example prints number from 0 to 10.
+        ```shell
+        for i in {0..10}; do
+          echo $i
+        done
+        ```
+   3. Loop over a range of numbers with steps: The range is specified like `{START..END..INCREMENT}`, `START` and `END` 
+      both inclusive. This example prints number from 0 to 10 with an increment of 2.
+        ```shell
+        for i in {0..10..2}; do
+          echo $i
+        done
+        ```
+   4. `C`-Style loop: The range is specified like `{START..END..INCREMENT}`, `START` and `END`
+      both inclusive. This example prints number from 0 to 10 with an increment of 2.
+        ```shell
+        for (( i=0; i<${#FRUITS[@]}; i++ )); do
+          echo ${FRUITS[$i]}
+        done
+        ```
+
+* `while` loop: while-loop is used to execute commands as long as the condition evaluates to true. This example prints 
+  0-5.
+```shell
+i=0
+while [[ $i -le 5 ]]; do
+  echo $i
+  ((i++))
+done
+
+# infinite loop
+while true; do
+  # commands
+done
+```
+
+* `until` loop: `until` loop is used to execute commands as long as the condition evaluates to false. This example will 
+  print 0-5 as the condition evaluates to false.
+```shell
+i=0
+until [ $i -gt 5 ]
+do
+  echo $i
+  ((i++))
+done
+
+# or, prints 0-4 as the condition is negated
+
+i=0
+until [ ! $i -lt 5 ]
+do
+  echo $i
+  ((i++))
+done
+```
+
+---
+
 ## <a name="cmdargs">Command Line Arguments</a>
  * Command line args can be passed as - `[shell] [filename] arg1 arg2 ... argN`
 

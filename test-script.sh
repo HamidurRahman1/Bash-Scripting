@@ -35,16 +35,31 @@ else
   echo "no"
 fi
 
-ARRAY=( Apple Banana 'Ground Cherry' Orange 'Star fruit' )
-
-ARRAY=( "${ARRAY[@]:1:2}" "${ARRAY[@]:3}" )
+FRUITS=( Apple Banana 'Ground Cherry' Orange 'Star fruit' )
+FRUITS_LEN=${#FRUITS}
 # shellcheck disable=SC2068
-echo ${ARRAY[@]}
+# shellcheck disable=SC2145
+echo "Length: $FRUITS_LEN, ELEMENTS: ${FRUITS[@]}"
 
-# echo each element in array
-# for loop
-#for (( i=0; i<$ELEMENTS; i++)); do
-#    echo ${ARRAY[${i}]}
+
+# shellcheck disable=SC2068
+for E in "${FRUITS[@]}"; do
+  echo $E
+done
+
+# shellcheck disable=SC2068
+#for i in ${!FRUITS[@]}; do
+#  echo "${FRUITS[$i]}"
 #done
 
-cat $PWD/README.md
+#for (( i=0; i<${#FRUITS[@]}; i++ )); do
+#  echo ${FRUITS[$i]}
+#done
+
+
+i=0
+until [ ! $i -lt 5 ]
+do
+  echo $i
+  ((i++))
+done
