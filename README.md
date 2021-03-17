@@ -7,9 +7,9 @@
 * [Inputs](#inputs)
 * [If-Else](#ifelse)
 * [Conditional Commands](#conditional-cmds)
+* [Command Line Arguments](#cmdargs)
 * [Array](#array)
 * [Loops](#loops)
-* [Command Line Arguments](#cmdargs)
 
 ---
 
@@ -174,6 +174,19 @@ fi
 
 ---
 
+## <a name="cmdargs">Command Line Arguments</a>
+* Command line args can be passed as - `[shell] [filename] arg1 arg2 ... argN`
+
+* Special vars associated with command line args:
+    1. `$#` - total number of arguments passed.
+    2. `$0` - filename as it was called with.
+    3. `$1` through `$9` - can be used to access first 9 parameters passed to the CMD.
+    4. `$@` -  all parameters passed to the CMD.
+    5. `$*` - Similar to `$@` but does not preserve the whitespaces and quotes ex. "Arg with space" becomes
+       "Arg" "with" "space". Usage of `$*` is discouraged.
+
+---
+
 ## <a name="array">Array</a>
  * Array can be declared as below:
 
@@ -297,17 +310,3 @@ done
 ```
 
 ---
-
-## <a name="cmdargs">Command Line Arguments</a>
- * Command line args can be passed as - `[shell] [filename] arg1 arg2 ... argN`
-
- * Special vars associated with command line args:
-    1. `$#` - total number of arguments passed.
-    2. `$0` - filename as it was called with.
-    3. `$1` through `$9` - can be used to access first 9 parameters passed to the CMD.
-    4. `$@` -  all parameters passed to the CMD.
-    5. `$*` - Similar to `$@` but does not preserve the whitespaces and quotes ex. "Arg with space" becomes 
-       "Arg" "with" "space". Usage of `$*` is discouraged.
-    
----
-
