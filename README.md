@@ -334,7 +334,7 @@ function foo {
 }
 ```
 
-#### <a name="scope">Variable Scope:</a> 
+#### <a name="variablescope">Variable Scope:</a> 
    Global variables are variables that can be accessed from anywhere in the script regardless of the 
    scope. In Bash, all variables by default are defined as global, even if declared inside the function. An already 
    defined global variable's value is changed inside a function then it will be changed to whatever is the function 
@@ -367,3 +367,42 @@ Before executing function: var1: A, var2: B
 Inside function: var1: C, var2: D
 After executing function: var1: A, var2: D
 ```
+
+* Return Values: 
+    1. Via status: Return value of a function is the status of the last executed statement in the function. `0` for success
+    and any non-zero number in 1-255 for failure.
+    <br>
+    <br>
+    The return status can be specified by using the return keyword, and it is assigned to the variable `$?`. The return 
+    statement terminates the function.
+    ```shell
+    test_return_func () {
+    echo "inside function, will return 10 and can be accessed via \$? after function is called."
+    return 10
+    }
+    
+    test_return_func
+    echo $?
+    ```
+
+   2. Via global variable: Arbitrary return value can be assigned to a global variable and use that after function call to
+    extract the return value.
+    ```shell
+    test_return_func () {
+      func_result=( APPLE BANANA ORANGE )
+    }
+    
+    test_return_func
+    echo ${func_result[@]}
+    ```  
+
+   3. Via `echo` command: 
+    ```shell
+    return_func_test () {
+      local func_result="returned result"
+      echo "$func_result"
+    }
+    
+    result="$(return_func_test)"
+    echo $result
+    ```

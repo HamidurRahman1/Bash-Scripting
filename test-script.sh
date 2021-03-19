@@ -89,5 +89,14 @@ local_func_test () {
 echo "Before executing function: var1: $var1, var2: $var2"
 
 local_func_test
+echo $?
 
 echo "After executing function: var1: $var1, var2: $var2"
+
+return_func_test () {
+  local func_result="returned result"
+  echo "$func_result"
+}
+
+result="$(return_func_test)"
+echo $result
