@@ -10,6 +10,7 @@
 * [Command Line Arguments](#cmdargs)
 * [Array](#array)
 * [Loops](#loops)
+* [Function](#function)
 
 ---
 
@@ -310,3 +311,26 @@ done
 ```
 
 ---
+
+## <a name="function">Function</a>
+ * Bash functions are regular programming languages functions with some limitations.
+
+ * Syntax for declaring a function:
+```shell
+name () {
+  echo "Hello world! from function name: ${FUNCNAME[0]}"
+}
+
+#or
+
+: '
+function foo () {
+}
+parenthesis are optional with `function` reserved word.
+'
+function foo {
+  echo "Hello world! from function name: ${FUNCNAME[0]}"
+}
+```
+
+ * Calling a function: `function_name [args]`

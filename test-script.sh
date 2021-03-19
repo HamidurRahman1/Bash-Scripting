@@ -63,3 +63,16 @@ do
   echo $i
   ((i++))
 done
+
+name () {
+  echo "Hello world! from function name: ${FUNCNAME[0]}"
+}
+
+#or
+
+function foo {
+  echo "Hello world! from function name: ${FUNCNAME[0]}"
+}
+
+name
+foo
