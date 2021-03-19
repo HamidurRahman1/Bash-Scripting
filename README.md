@@ -377,8 +377,8 @@ After executing function: var1: A, var2: D
     statement terminates the function.
     ```shell
     test_return_func () {
-    echo "inside function, will return 10 and can be accessed via \$? after function is called."
-    return 10
+      echo "inside function, will return 10 and can be accessed via \$? after function is called."
+      return 10
     }
     
     test_return_func
