@@ -373,8 +373,8 @@ After executing function: var1: A, var2: D
     and any non-zero number in 1-255 for failure.
     <br>
     <br>
-    The return status can be specified by using the return keyword, and it is assigned to the variable `$?`. The return 
-    statement terminates the function.
+    The return status can be specified by using the return keyword, and it is assigned to the variable <code>$?</code>. 
+       The return statement terminates the function.
 ```shell
 test_return_func () {
   echo "inside function, will return 10 and can be accessed via \$? after function is called."
