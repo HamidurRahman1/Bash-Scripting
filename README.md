@@ -406,3 +406,7 @@ return_func_test () {
 result="$(return_func_test)"
 echo $result
 ```
+
+### Credits: 
+Credits to multiple websites on the internet. I lost track of them at some point. If one claim credits, "you receive 
+credit for whatever you claim".
