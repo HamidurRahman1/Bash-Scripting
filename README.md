@@ -55,6 +55,7 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
    
  * A `readonly` variable with `unset` command or reassignment will cause an error during execution.
 
+ * [variable scope](#variablescope)
 ---
 
 ## <a name="inputs">Inputs</a>
@@ -333,4 +334,36 @@ function foo {
 }
 ```
 
- * Calling a function: `function_name [args]`
+#### <a name="scope">Variable Scope:</a> 
+   Global variables are variables that can be accessed from anywhere in the script regardless of the 
+   scope. In Bash, all variables by default are defined as global, even if declared inside the function. An already 
+   defined global variable's value is changed inside a function then it will be changed to whatever is the function 
+   body has set to. See below -
+   <br>
+   <br>
+   Local variables can be declared within the function body with the `local` keyword and can be used only inside that 
+   function. You can have local variables with the same name in different functions.
+   
+```shell
+var1='A'
+var2='B'
+
+local_func_test () {
+  local var1='C'
+  var2='D'
+  echo "Inside function: var1: $var1, var2: $var2"
+}
+
+echo "Before executing function: var1: $var1, var2: $var2"
+
+local_func_test
+
+echo "After executing function: var1: $var1, var2: $var2"
+```
+
+output:
+```shell
+Before executing function: var1: A, var2: B
+Inside function: var1: C, var2: D
+After executing function: var1: A, var2: D
+```

@@ -76,3 +76,18 @@ function foo {
 
 name
 foo
+
+var1='A'
+var2='B'
+
+local_func_test () {
+  local var1='C'
+  var2='D'
+  echo "Inside function: var1: $var1, var2: $var2"
+}
+
+echo "Before executing function: var1: $var1, var2: $var2"
+
+local_func_test
+
+echo "After executing function: var1: $var1, var2: $var2"
