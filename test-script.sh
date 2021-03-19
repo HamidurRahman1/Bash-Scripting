@@ -100,3 +100,9 @@ return_func_test () {
 
 result="$(return_func_test)"
 echo $result
+
+if [[ $result == "returned result" ]]; then
+  echo "success"
+else
+  echo "failed"
+fi
