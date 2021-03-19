@@ -375,34 +375,34 @@ After executing function: var1: A, var2: D
     <br>
     The return status can be specified by using the return keyword, and it is assigned to the variable `$?`. The return 
     statement terminates the function.
-    ```shell
-    test_return_func () {
-      echo "inside function, will return 10 and can be accessed via \$? after function is called."
-      return 10
-    }
-    
-    test_return_func
-    echo $?
-    ```
+```shell
+test_return_func () {
+  echo "inside function, will return 10 and can be accessed via \$? after function is called."
+  return 10
+}
+
+test_return_func
+echo $?
+```
 
    2. Via global variable: Arbitrary return value can be assigned to a global variable and use that after function call to
     extract the return value.
-    ```shell
-    test_return_func () {
-      func_result=( APPLE BANANA ORANGE )
-    }
-    
-    test_return_func
-    echo ${func_result[@]}
-    ```  
+```shell
+test_return_func () {
+  func_result=( APPLE BANANA ORANGE )
+}
+
+test_return_func
+echo ${func_result[@]}
+```  
 
    3. Via `echo` command: 
-    ```shell
-    return_func_test () {
-      local func_result="returned result"
-      echo "$func_result"
-    }
-    
-    result="$(return_func_test)"
-    echo $result
-    ```
+```shell
+return_func_test () {
+  local func_result="returned result"
+  echo "$func_result"
+}
+
+result="$(return_func_test)"
+echo $result
+```
