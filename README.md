@@ -1,11 +1,14 @@
 # Bash-Scripting
 
+---
+
 ## <a name="index">Index</a>
 * [Shebang](#shebang)
 * [Comments](#comments)
-* [Variables](#variables)
+* [Variables - TBD](#variables)
 * [Inputs](#inputs)
 * [If-Else](#ifelse)
+* [Case statement - TBD](#case)
 * [Conditional Commands](#conditional-cmds)
 * [Command Line Arguments](#cmdargs)
 * [Array](#array)
@@ -17,6 +20,8 @@
 ## <a name="shebang">Shebang</a>
 The `#!` syntax used in scripts to indicate an interpreter for execution under UNIX / Linux operating systems. <br>
  **`#!/bin/sh` or `#!/usr/bin/sh` or `#!/bin/bash` or `#!/usr/bin/env [shell]`**
+
+[go to index](#index)
 
 ---
 
@@ -31,6 +36,8 @@ The `#!` syntax used in scripts to indicate an interpreter for execution under U
   this is the line 2 of multi-line comment.
 '
 ``` 
+
+[go to index](#index)
 
 ---
 
@@ -56,6 +63,9 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
  * A `readonly` variable with `unset` command or reassignment will cause an error during execution.
 
  * [variable scope](#variablescope)
+
+[go to index](#index)
+
 ---
 
 ## <a name="inputs">Inputs</a>
@@ -82,6 +92,8 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
     ```
 
  * Inputs with flags: TBD.
+
+[go to index](#index)
 
 ---
 
@@ -131,6 +143,8 @@ else
 fi
 ```
 
+[go to index](#index)
+
 ---
 
 ## <a name="conditional-cmds">Conditional Commands</a>
@@ -174,6 +188,8 @@ fi
 | [[ -w $FILE ]] | true if `FILE` exists and is writable, false otherwise
 | [[ -x $FILE ]] | true if `FILE` exists and is executable, false otherwise
 
+[go to index](#index)
+
 ---
 
 ## <a name="cmdargs">Command Line Arguments</a>
@@ -186,6 +202,8 @@ fi
     4. `$@` -  all parameters passed to the CMD.
     5. `$*` - Similar to `$@` but does not preserve the whitespaces and quotes ex. "Arg with space" becomes
        "Arg" "with" "space". Usage of `$*` is discouraged.
+
+[go to index](#index)
 
 ---
 
@@ -240,6 +258,9 @@ for FRUIT in "${Fruits[@]}"; do
   echo $FRUIT
 done
 ```
+
+[go to index](#index)
+
 ---
 
 ## <a name="loops">Loops</a>
@@ -312,6 +333,7 @@ done
 ```
 
 [go to index](#index)
+
 ---
 
 ## <a name="function">Function</a>
@@ -409,6 +431,7 @@ echo $result
 ```
 
 [go to index](#index)
+
 ---
 
 ### Credits: 
