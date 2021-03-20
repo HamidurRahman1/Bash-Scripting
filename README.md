@@ -14,6 +14,7 @@
 * [Array](#array)
 * [Loops](#loops)
 * [Function](#function)
+* [Arithmetic](#arithmetic)
 
 ---
 
@@ -26,10 +27,10 @@ The `#!` syntax used in scripts to indicate an interpreter for execution under U
 ---
 
 ## <a name="comments">Comments</a>
-* Single Line Comment: A single line that starts with `#` will be treated as a comment to the end of the line. <br>
+* <b>Single Line Comment:</b> A single line that starts with `#` will be treated as a comment to the end of the line. <br>
   **`# This is a single line comment`**
 
-* Multi Line Comment: A multi-line starts with `: '` and end with `'` will be treated as a multi-line comment. <br>
+* <b>Multi Line Comment:</b> A multi-line starts with `: '` and end with `'` will be treated as a multi-line comment. <br>
 ```shell
 : '
   This is the line 1 of multi-line comment.
@@ -83,7 +84,7 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
     echo "Hello $NAME - hope you are doing well."
     ```
 
- * Input with options: `read` can be used with options like `-p` allows a prompt where `-sp` allows silent prompts 
+ * <b>Input with options:</b> `read` can be used with options like `-p` allows a prompt where `-sp` allows silent prompts 
    (inputs not visible).
     ```shell
       read -p "Username: " uservar
@@ -91,7 +92,7 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
       echo "Username: $uservar and Password: $passvar"
     ```
 
- * Inputs with flags: TBD.
+ * <b>Inputs with flags:</b> TBD.
 
 [go to index](#index)
 
@@ -109,7 +110,7 @@ fi
 ```
  Spaces between `if` and test must be present.
 
- * Only`if` branch: 
+ * <b>Only`if` branch:</b>
 ```shell
 if [[ CONDITION ]]
 then
@@ -123,7 +124,7 @@ if [[ CONDITION ]]; then
 fi
 ```
 
- * `if-else` branch: 
+ * <b>`if-else` branch:</b>
 ```shell
 if [[ CONDITION ]]; then
   statement(s)
@@ -132,7 +133,7 @@ else
 fi
 ```
    
- * `if..elif..else` branch:
+ * <b>`if..elif..else` branch:</b>
 ```shell
 if [[ CONDITION ]]; then
   statement(s)
@@ -148,7 +149,7 @@ fi
 ---
 
 ## <a name="conditional-cmds">Conditional Commands</a>
- * String and Numeric conditions:
+ * <b>String and Numeric conditions:</b>
 
 | Condition | Description
 | :---         |     :---:      
@@ -167,7 +168,7 @@ fi
 | (( $NUM1 < $NUM2 )) | true if `$NUM1` is less than `$NUM2`, false otherwise
 | (( $NUM1 > $NUM2 )) | true if `$NUM1` is greater than `$NUM2`, false otherwise
 
- * Logical conditions:
+ * <b>Logical conditions:</b>
 
 | Condition | Description
 | :--- | :---:      
@@ -175,7 +176,7 @@ fi
 | [[ COND1 && COND2 ]] | applies logical `and` on `COND1` and `COND2`
 | [[ COND1 &#124;&#124; COND2 ]] | applies logical `or` on `COND1` and `COND2`
 
- * File conditions:
+ * <b>File conditions:</b>
 
 | Condition | Description
 | :--- | :---:      
@@ -227,7 +228,7 @@ Fruits[1]="Banana"
 Fruits[2]="Orange"
 ```
 
- * Array Commands:
+ * <b>Array Commands:</b>
 ```shell
 echo ${Fruits[0]}           # element at 0 index
 echo ${Fruits[-1]}          # element at last index
@@ -239,7 +240,7 @@ echo ${Fruits[@]:2:4}       # slice starting from 2 (inclusive) and next 3
 echo ${!Fruits[@]}          # indexes of all elements, space-separated
 ```
 
- * Array operations:
+ * <b>Array operations:</b>
 ```shell
 Fruits=("${Fruits[@]}" "Watermelon")    # push to the end
 Fruits+=('Watermelon')                  # also push to the end
@@ -252,7 +253,7 @@ Fruits=("${Fruits[@]}" "${Veggies[@]}") # concatenate two arrays
 lines=(`cat "file"`)                    # read from file to array
 ```
 
- * Iteration:
+ * <b>Iteration:</b>
 ```shell
 for FRUIT in "${Fruits[@]}"; do
   echo $FRUIT
@@ -264,9 +265,9 @@ done
 ---
 
 ## <a name="loops">Loops</a>
-* 3-types of loops:
-* `for` loops:
-   1. Standard Bash `for` loop: This style of loop takes either an array, series of string separated by spaces,
+* <b>3-types of loops:</b>
+* <b>`for` loops:</b>
+   1. <b>Standard Bash `for` loop:</b> This style of loop takes either an array, series of string separated by spaces,
     a range of numbers, output of a command etc. If an array variable is used then the variable must be quoted for safety
     in case one of the element has a space in it.
         ```shell
@@ -275,21 +276,21 @@ done
           echo $element
         done
         ```
-   2. Loop over a range of numbers: The range is specified like `{START..END}`, `START` and `END` both inclusive. This 
+   2. <b>Loop over a range of numbers:</b> The range is specified like `{START..END}`, `START` and `END` both inclusive. This 
       example prints number from 0 to 10.
         ```shell
         for i in {0..10}; do
           echo $i
         done
         ```
-   3. Loop over a range of numbers with steps: The range is specified like `{START..END..INCREMENT}`, `START` and `END` 
+   3. <b>Loop over a range of numbers with steps:</b> The range is specified like `{START..END..INCREMENT}`, `START` and `END` 
       both inclusive. This example prints number from 0 to 10 with an increment of 2.
         ```shell
         for i in {0..10..2}; do
           echo $i
         done
         ```
-   4. `C`-Style loop: The range is specified like `{START..END..INCREMENT}`, `START` and `END`
+   4. <b>`C`-style loop:</b> The range is specified like `{START..END..INCREMENT}`, `START` and `END`
       both inclusive. This example prints number from 0 to 10 with an increment of 2.
         ```shell
         for (( i=0; i<${#FRUITS[@]}; i++ )); do
@@ -297,7 +298,7 @@ done
         done
         ```
 
-* `while` loop: while-loop is used to execute commands as long as the condition evaluates to true. This example prints 
+* <b>`while` loop:</b> while-loop is used to execute commands as long as the condition evaluates to true. This example prints 
   0-5.
 ```shell
 i=0
@@ -312,7 +313,7 @@ while true; do
 done
 ```
 
-* `until` loop: `until` loop is used to execute commands as long as the condition evaluates to false. This example will 
+* <b>`until` loop:</b> `until` loop is used to execute commands as long as the condition evaluates to false. This example will 
   print 0-5 as the condition evaluates to false.
 ```shell
 i=0
@@ -383,16 +384,15 @@ local_func_test
 
 echo "After executing function: var1: $var1, var2: $var2"
 ```
-
-output:
+<b>output:</b>
 ```shell
 Before executing function: var1: A, var2: B
 Inside function: var1: C, var2: D
 After executing function: var1: A, var2: D
 ```
 
-* Return Values: 
-    1. Via status: Return value of a function is the status of the last executed statement in the function. `0` for success
+* <b>Return Values:</b>
+    1. <b>Via status:</b> Return value of a function is the status of the last executed statement in the function. `0` for success
     and any non-zero number in 1-255 for failure.
     <br>
     <br>
@@ -408,7 +408,7 @@ test_return_func
 echo $?
 ```
 
-   2. Via global variable: Arbitrary return value can be assigned to a global variable and use that after function call to
+   2. <b>Via global variable:</b> Arbitrary return value can be assigned to a global variable and use that after function call to
     extract the return value.
 ```shell
 test_return_func () {
@@ -419,7 +419,7 @@ test_return_func
 echo ${func_result[@]}
 ```  
 
-   3. Via `echo` command: 
+   3. <b>Via `echo` command:</b>
 ```shell
 return_func_test () {
   local func_result="returned result"
@@ -428,6 +428,54 @@ return_func_test () {
 
 result="$(return_func_test)"
 echo $result
+```
+
+[go to index](#index)
+
+---
+
+## <a name="arithmetic">Arithmetic</a>
+ * <b>Arithmetic expansion:</b> Arithmetic expansion is done by enclosing any mathematical expression inside double parentheses.
+```shell
+additon=$((10+5))
+echo "Addition of 10 and 5 is : "$additon
+echo "Subtraction of 5 from 10 is : "$((10-5))
+echo "Multiplication of 10 and 5 is : "$((10*5))
+echo "Integer division of 10 and 5 is : "$((10/5))
+```
+for decimal point see `bc` command below.
+
+ * <b>`expr` command:</b> This allows to do arithmetic operations without enclosing in brackets or quotes. Keep in mind
+`\*` must be used in place of `*` only for to avoid syntax error and spaces must be present in between `expr` command 
+   and mathematical operators.
+```shell
+expr 3 + 2
+expr 3 - 2
+expr 3 \* 2
+expr 4 / 2
+```
+
+ * <b>`let` command: </b> `let` command is similar to `expr` except it allows the evaluated result to be stored in a 
+  variable.
+```shell
+let additon=5+5
+let sub=$additon-3
+let mul=$additon*2
+let div=100/5
+let additon++
+let additon--
+```
+
+ * <b>`bc` command:</b> Floating number can be resulted by using `bc` command. By default, the `bc` command will 
+   produce all results as an integer number. Use `scale=x` to instruct the `bc` command to show real numbers:
+```shell
+echo 'scale=2; 10.5 / 2.13' | bc
+echo 'scale=20; 30.5 / 3.13' | bc
+```
+output:
+```shell
+4.92
+9.74440894568690095846
 ```
 
 [go to index](#index)

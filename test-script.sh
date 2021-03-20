@@ -106,3 +106,6 @@ if [[ $result == "returned result" ]]; then
 else
   echo "failed"
 fi
+
+echo 'scale=2; 10.5 / 2.13' | bc
+echo 'scale=20; 30.5 / 3.13' | bc
