@@ -1,6 +1,6 @@
 # Bash-Scripting
 
-## Index:
+## <a name="index">Index</a>
 * [Shebang](#shebang)
 * [Comments](#comments)
 * [Variables](#variables)
@@ -311,6 +311,7 @@ do
 done
 ```
 
+[go to index](#index)
 ---
 
 ## <a name="function">Function</a>
@@ -407,6 +408,11 @@ result="$(return_func_test)"
 echo $result
 ```
 
+[go to index](#index)
+---
+
 ### Credits: 
 Credits to multiple websites on the internet. I lost track of them at some point. If one claim credits, "you receive 
 credit for whatever you claim".
+
+[go to index](#index)
