@@ -2,15 +2,20 @@
 
 ---
 
+[Credits](#credits)
+
 ## <a name="index">Index</a>
+* [Unix Commands - Link 1](#http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html)
+* [Unix Commands - Link 2](#https://predictivehacks.com/unix-commands-cheatsheet/)
+---
 * [Shebang](#shebang)
 * [Comments](#comments)
-* [Variables - TBD](#variables)
+* [Variables](#variables)
 * [Inputs](#inputs)
 * [If-Else](#ifelse)
 * [Case statement - TBD](#case)
 * [Conditional Commands](#conditional-cmds)
-* [Command Line Arguments](#cmdargs)
+* [Command Line Arguments - TBD](#cmdargs)
 * [Array](#array)
 * [Loops](#loops)
 * [Function](#function)
@@ -92,8 +97,6 @@ and 0-9 BUT it cannot be numbers only and cannot start with numbers.
       echo "Username: $uservar and Password: $passvar"
     ```
 
- * <b>Inputs with flags:</b> TBD.
-
 [go to index](#index)
 
 ---
@@ -142,6 +145,69 @@ elif [[ CONDITION ]]; then
 else
   statement(s)
 fi
+```
+
+[go to index](#index)
+
+---
+
+## <a name="case">Case Statement</a>
+ * <b>Syntax:</b>
+```shell
+case EXPRESSION in
+
+  PATTERN_1)
+    STATEMENTS
+    ;;
+
+  PATTERN_2)
+    STATEMENTS
+    ;;
+
+  PATTERN_N)
+    STATEMENTS
+    ;;
+
+  *)
+    STATEMENTS
+    ;;
+esac
+```
+1. Each `case` statement starts with the `case` keyword, followed by the case expression and the `in` keyword. 
+   The statement ends with the `esac` keyword.
+2. Multiple patterns can be matched by the `|` operator. The `)` operator terminates a pattern list.
+3. Each clause must be terminated with `;;`.
+4. The commands corresponding to the first pattern that matches the expression are executed.
+5. It is a common practice to use the wildcard asterisk symbol `*` as a final pattern to define the default case. 
+   This pattern will always match.
+6. If no pattern is matched, the return status is zero. Otherwise, the return status is the exit status of the executed 
+   commands.
+
+Ex - 
+```shell
+echo -n "Enter the name of a country: "
+read COUNTRY
+
+echo -n "The official language of $COUNTRY is "
+
+case $COUNTRY in
+
+  Lithuania)
+    echo -n "Lithuanian"
+    ;;
+
+  Romania | Moldova)
+    echo -n "Romanian"
+    ;;
+
+  Italy | "San Marino" | Switzerland | "Vatican City")
+    echo -n "Italian"
+    ;;
+
+  *)
+    echo -n "unknown"
+    ;;
+esac
 ```
 
 [go to index](#index)
@@ -482,7 +548,7 @@ output:
 
 ---
 
-### Credits: 
+## <a name="credits">Credits:</a> 
 Credits to multiple websites on the internet. I lost track of them at some point. If one claim credits, "you receive 
 credit for whatever you claim".
 

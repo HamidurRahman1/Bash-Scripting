@@ -109,3 +109,6 @@ fi
 
 echo 'scale=2; 10.5 / 2.13' | bc
 echo 'scale=20; 30.5 / 3.13' | bc
+
+RSP=`curl -s -o /dev/null -I -w "%{http_code}" http://www.example.org/`
+echo $RSP
