@@ -269,6 +269,28 @@ esac
     4. `$@` -  all parameters passed to the CMD.
     5. `$*` - Similar to `$@` but does not preserve the whitespaces and quotes ex. "Arg with space" becomes
        "Arg" "with" "space". Usage of `$*` is discouraged.
+       
+* Command line args with flags: Using flags is a common way of passing input to a script. When passing input to the 
+  script, there’s a flag (usually a single letter) starting with a hyphen (-) before each argument. A flag followed by 
+  `:` requires a value. Flags can be used in any order.
+```shell
+while getopts lu: flag
+do
+    case "${flag}" in
+        u) username=${OPTARG};;
+
+        l)
+          for v in `ls -R`; do
+            echo "=>"$v
+          done ;;
+
+        *) echo "invalid flag provided" ;;
+    esac
+done
+echo "Username: $username";
+```
+
+Execution: `[shell] [filename] -l -u hamidurrahman` or `[shell] [filename] -u hamidurrahman -l`
 
 [go to index](#index)
 
