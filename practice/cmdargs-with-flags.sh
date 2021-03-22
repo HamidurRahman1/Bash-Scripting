@@ -12,6 +12,7 @@ do
           fi;;
 
         l)
+          echo "Recursively printing all files - "
           for v in `ls -R`; do
             echo "=>"$v
           done ;;
@@ -19,3 +20,5 @@ do
         *) echo "invalid flag provided" ;;
     esac
 done
+
+echo "Provided username with flag -u : $username"

@@ -5,17 +5,18 @@
 [Credits](#credits)
 
 ## <a name="index">Index</a>
-* [Unix Commands - Link 1](#http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html)
-* [Unix Commands - Link 2](#https://predictivehacks.com/unix-commands-cheatsheet/)
+
+* [Unix Commands - Link 1](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html)
+* [Unix Commands - Link 2](https://predictivehacks.com/unix-commands-cheatsheet/)
 ---
 * [Shebang](#shebang)
 * [Comments](#comments)
 * [Variables](#variables)
 * [Inputs](#inputs)
 * [If-Else](#ifelse)
-* [Case statement - TBD](#case)
+* [Case statement](#case)
 * [Conditional Commands](#conditional-cmds)
-* [Command Line Arguments - TBD](#cmdargs)
+* [Command Line Arguments](#cmdargs)
 * [Array](#array)
 * [Loops](#loops)
 * [Function](#function)
@@ -262,7 +263,7 @@ esac
 ## <a name="cmdargs">Command Line Arguments</a>
 * Command line args can be passed as - `[shell] [filename] arg1 arg2 ... argN`
 
-* Special vars associated with command line args:
+* <b>Special vars associated with command line args:</b>
     1. `$#` - total number of arguments passed.
     2. `$0` - filename as it was called with.
     3. `$1` through `$9` - can be used to access first 9 parameters passed to the CMD.
@@ -270,7 +271,7 @@ esac
     5. `$*` - Similar to `$@` but does not preserve the whitespaces and quotes ex. "Arg with space" becomes
        "Arg" "with" "space". Usage of `$*` is discouraged.
        
-* Command line args with flags: Using flags is a common way of passing input to a script. When passing input to the 
+* <b>Command line args with flags:</b> Using flags is a common way of passing input to a script. When passing input to the 
   script, there’s a flag (usually a single letter) starting with a hyphen (-) before each argument. A flag followed by 
   `:` requires a value. Flags can be used in any order.
 ```shell
