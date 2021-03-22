@@ -549,7 +549,7 @@ output:
 ---
 
 ## <a name="credits">Credits:</a> 
-Credits to multiple websites on the internet. I lost track of them at some point. If one claim credits, "you receive 
-credit for whatever you claim".
+Credits to multiple websites on the internet. I lost track of them at some point. If one claim credits, you receive 
+credit for whatever you claim.
 
 [go to index](#index)
